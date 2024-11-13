@@ -4,7 +4,7 @@
 data.raw["planet"]["fulgora"].lightning_properties.lightnings_per_chunk_per_tick = 0.0001 -- Vanilla is 0.00166...
 
 -- Lightning damage buff (Funny)
-data.raw["lightning"]["lightning"].damage = 290 -- Player hp is 250, shields are 50. !!! Warn players that they will get one shot without some sort of extra health.
+data.raw["lightning"]["lightning"].damage = 290 -- Player hp is 250, shields are 50.
 
 -- Changes to lightning power density text on space map in locale files.
 
