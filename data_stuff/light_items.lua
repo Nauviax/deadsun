@@ -2,9 +2,14 @@
 local bonfire_fire = util.table.deepcopy(data.raw["fire"]["fire-flame"]);
 bonfire_fire.name = "ds-bonfire"
 bonfire_fire.damage_per_tick = {amount = 0, type = "fire"} -- No damage sadly, too easy to cheese biters.
+bonfire_fire.emissions_per_second = {} -- No pollution generation.
 bonfire_fire.initial_lifetime = 18000 -- 5 minutes
 bonfire_fire.maximum_lifetime = 18000
+bonfire_fire.burnt_patch_lifetime = 60 -- Default 1800. Fast, so new fire can be placed.
 bonfire_fire.light = {intensity = 0.5, size = 35}
+bonfire_fire.hidden = false
+bonfire_fire.collision_box = {{-0.49, -0.49}, {0.49, 0.49}} -- Collision, mainly to prevent accidental multiplace.
+bonfire_fire.collision_mask = {layers = {object = true, water_tile = true}}
 data:extend({bonfire_fire})
 data:extend({
 	{
@@ -17,7 +22,8 @@ data:extend({
 		place_result = "ds-bonfire",
 		stack_size = 10,
 		fuel_category = "chemical",
-		fuel_value = "2MJ" -- Same as a single piece of wood, so less than just burning two wood.
+		fuel_value = "2MJ", -- Same as a single piece of wood, so less than just burning two wood.
+		flags = {"hide-from-fuel-tooltip"} -- Not really designed to be used as fuel.
 	},
 	{
 		type = "recipe",

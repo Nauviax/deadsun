@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2024.12.06
+  Changes:
+    - Bonfires now collide with most objects, including themself. This prevents accidentally placing multiple on top of each other.
+    - Removed bonfire pollution generation.
+    - Light glow added to vehicles to match player's glow. Should help driving and remote construction in unlit areas.
+    - Removed spidertron eye lights, as they look weird in extreme darkness. (Headlights are still there)
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2024.11.11
   Changes:

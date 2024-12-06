@@ -17,7 +17,26 @@ data.raw["space-platform-hub"]["space-platform-hub"].stateless_visualisation = {
 	light = {intensity = 0.5, size = 50, color = {r=1, g=0, b=0}} -- Emergency red light, for before other lamps are built
 }
 
--- Various other entity lights that should always be on
+-- Add area lights to vehichles, and make them permanently on.
+local car = data.raw["car"]["car"]
+car.darkness_to_render_light_animation = -1
+car.light[1].minimum_darkness = 0 -- Headlights
+car.light[2].minimum_darkness = 0
+table.insert(car.light, {intensity = 0.4, size = 40}) -- Add area light to match player.
+local tank = data.raw["car"]["tank"]
+tank.darkness_to_render_light_animation = -1
+tank.light[1].minimum_darkness = 0 -- Headlights
+tank.light[2].minimum_darkness = 0
+table.insert(tank.light, {intensity = 0.4, size = 40}) -- Add area light to match player.
+local spidertron = data.raw["spider-vehicle"]["spidertron"]
+spidertron.graphics_set.light[1] = {intensity = 0.4, size = 40} -- Adjust area light to match player. (Always on, so *appears* to dim on enter)
+spidertron.graphics_set.light[2].minimum_darkness = 0 -- Headlights
+spidertron.graphics_set.light[3].minimum_darkness = 0
+spidertron.graphics_set.light[4].minimum_darkness = 0
+spidertron.graphics_set.light[5].minimum_darkness = 0
+spidertron.graphics_set.light_positions = {} -- Remove eye lights, they look weird in this system.
+
+-- Train lights also permanently on. No brightness change for now.
 local loco = data.raw["locomotive"]["locomotive"]
 loco.darkness_to_render_light_animation = -1 -- Negative 1, as 0 doesn't work for WHATEVER REASON.
 loco.front_light[1].minimum_darkness = 0
@@ -41,20 +60,6 @@ artillery_wagon.back_light[1].minimum_darkness = 0
 artillery_wagon.back_light[2].minimum_darkness = 0
 artillery_wagon.stand_by_light[1].minimum_darkness = 0
 artillery_wagon.stand_by_light[2].minimum_darkness = 0
-local car = data.raw["car"]["car"]
-car.darkness_to_render_light_animation = -1
-car.light[1].minimum_darkness = 0
-car.light[2].minimum_darkness = 0
-local tank = data.raw["car"]["tank"]
-tank.darkness_to_render_light_animation = -1
-tank.light[1].minimum_darkness = 0
-tank.light[2].minimum_darkness = 0
-local spidertron = data.raw["spider-vehicle"]["spidertron"]
-spidertron.graphics_set.light[1].minimum_darkness = 0
-spidertron.graphics_set.light[2].minimum_darkness = 0
-spidertron.graphics_set.light[3].minimum_darkness = 0
-spidertron.graphics_set.light[4].minimum_darkness = 0
-spidertron.graphics_set.light[5].minimum_darkness = 0
 -- I'd like to change editor cursor light, but unsure how to do so. Prototype seems to only have a bool, not a minimum_darkness.
 
 
