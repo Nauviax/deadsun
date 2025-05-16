@@ -27,15 +27,16 @@ data.raw["technology"]["solar-panel-equipment"].prerequisites = {"modular-armor"
 -- Conduit power! (Secretly just a solar panel)
 -- Set solar generation
 data.raw["solar-panel"]["solar-panel"].production = "1MW"
+data.raw["solar-panel"]["solar-panel"].performance_at_night = 1 -- Full power at night.
 
 -- Set each location's solar. Individually. Locale changes to solar text as well.
 data.raw["planet"]["vulcanus"].surface_properties["solar-power"] = 1.2
 data.raw["planet"]["vulcanus"].solar_power_in_space = 120
 data.raw["planet"]["nauvis"].surface_properties["solar-power"] = 1
 data.raw["planet"]["nauvis"].solar_power_in_space = 100
-data.raw["planet"]["gleba"].surface_properties["solar-power"] = 0.6
+data.raw["planet"]["gleba"].surface_properties["solar-power"] = 0.8
 data.raw["planet"]["gleba"].solar_power_in_space = 80
-data.raw["planet"]["fulgora"].surface_properties["solar-power"] = 0 -- It's *actually* night on Fulgora, so no solar power.
+data.raw["planet"]["fulgora"].surface_properties["solar-power"] = 0.6
 data.raw["planet"]["fulgora"].solar_power_in_space = 60
 data.raw["planet"]["aquilo"].surface_properties["solar-power"] = 0.1
 data.raw["planet"]["aquilo"].solar_power_in_space = 1

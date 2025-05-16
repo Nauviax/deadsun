@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2025.05.15
+  Changes:
+    - Use Factorio 2.0.48 SolarPanelPrototype's new performance_at_night property to make solar work at night.
+    - (Effective change is that the time is *actually* night now, so cloud shadows don't get rendered.)
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 2024.12.06
   Changes:
