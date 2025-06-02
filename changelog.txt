@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 2025.06.02
+  Changes:
+    - Extended 1.1.0 solar changes to solar equipment with new Factorio version 2.0.53.
+    - Fixed other mods crashing if they required night vision or solar equipment. (Night vision is still removed however)
+---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 2025.05.15
   Changes:

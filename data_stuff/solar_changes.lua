@@ -1,10 +1,7 @@
 -- Half the power of personal solar due to running all the time. Still overall less J per "day".
--- Clone existing item, change power AND TYPE, save to generator-equipment, and remove old item.
-local solar_panel_equipment = util.table.deepcopy(data.raw["solar-panel-equipment"]["solar-panel-equipment"])
-solar_panel_equipment.power = "15kW"
-solar_panel_equipment.type = "generator-equipment"
-data.raw["solar-panel-equipment"]["solar-panel-equipment"] = nil
-data:extend{solar_panel_equipment} -- Now in generator-equipment, so it doesn't depend on solar anymore.
+local solar_panel_equipment = data.raw["solar-panel-equipment"]["solar-panel-equipment"]
+data.raw["solar-panel-equipment"]["solar-panel-equipment"].power = "15kW"
+data.raw["solar-panel-equipment"]["solar-panel-equipment"].performance_at_night = 1
 -- Locale is edited to reflect this
 
 -- Also change it to have a new recipe, that doesn't require solar panels.
@@ -116,7 +113,6 @@ data.raw["solar-panel"]["solar-panel"].stateless_visualisation = {
 			animation_speed = 1.0,
 		}
 	}
-	
 }
 data.raw["solar-panel"]["solar-panel"].drawing_box_vertical_extension = 0.65 -- Lower sprite in gui so top can be seen
 data.raw["solar-panel"]["solar-panel"].picture = { -- Show *something* for when built as ghost.

@@ -1,6 +1,6 @@
 -- Remove night vision and it's tech. Also disable the item's ability to turn on, in case someone somehow gets it.
-data.raw.technology["night-vision-equipment"] = nil
-data.raw.recipe["night-vision-equipment"] = nil
+data.raw.technology["night-vision-equipment"].hidden = true
+data.raw.recipe["night-vision-equipment"].hidden = true
 data.raw.item["night-vision-equipment"].hidden = true
 data.raw["night-vision-equipment"]["night-vision-equipment"].hidden = true
 data.raw["night-vision-equipment"]["night-vision-equipment"].darkness_to_turn_on = 1
