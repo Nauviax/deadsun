@@ -1,20 +1,24 @@
+-- Hidden surface property for personal solar to use, constant on all planets
+data:extend({{ type = "surface-property", name = "const", default_value = 1.0, hidden = true }})
+
 -- Half the power of personal solar due to running all the time. Still overall less J per "day".
 local solar_panel_equipment = data.raw["solar-panel-equipment"]["solar-panel-equipment"]
-data.raw["solar-panel-equipment"]["solar-panel-equipment"].power = "15kW"
-data.raw["solar-panel-equipment"]["solar-panel-equipment"].performance_at_night = 1
+solar_panel_equipment.power = "15kW"
+solar_panel_equipment.performance_at_night = 1
+solar_panel_equipment.solar_coefficient_property = "const" -- Do not modify output based on planet solar
 -- Locale is edited to reflect this
 
 -- Also change it to have a new recipe, that doesn't require solar panels.
 data.raw["recipe"]["solar-panel-equipment"].ingredients = {
-	{type="item", name="steel-plate", amount=5},
-	{type="item", name="advanced-circuit", amount=5},
-	{type="item", name="engine-unit", amount=5},
+	{ type = "item", name = "steel-plate", amount = 5 },
+	{ type = "item", name = "advanced-circuit", amount = 5 },
+	{ type = "item", name = "engine-unit", amount = 5 },
 }
 -- And change the recycling recipe to match.
 data.raw["recipe"]["solar-panel-equipment-recycling"].results = {
-	{type="item", name="steel-plate", amount=1, extra_count_fraction=0.25},
-	{type="item", name="advanced-circuit", amount=1, extra_count_fraction=0.25},
-	{type="item", name="engine-unit", amount=1, extra_count_fraction=0.25},
+	{ type = "item", name = "steel-plate", amount = 1, extra_count_fraction = 0.25 },
+	{ type = "item", name = "advanced-circuit", amount = 1, extra_count_fraction = 0.25 },
+	{ type = "item", name = "engine-unit", amount = 1, extra_count_fraction = 0.25 },
 }
 
 -- Adjust equipment tech to not require solar energy.
@@ -42,14 +46,14 @@ data.raw["space-location"]["shattered-planet"].solar_power_in_space = 0
 
 -- Change solar panel recipe to be more expensive, stone and processing units, with some steel for the frame.
 data.raw["recipe"]["solar-panel"].ingredients = {
-	{type="item", name="stone", amount=1000},
-	{type="item", name="processing-unit", amount=80},
-	{type="item", name="steel-plate", amount=80}
+	{ type = "item", name = "stone", amount = 1000 },
+	{ type = "item", name = "processing-unit", amount = 80 },
+	{ type = "item", name = "steel-plate", amount = 80 }
 }
 data.raw["recipe"]["solar-panel"].energy_required = 120
 -- aaand the recycling recipe. Self recycle, to avoid people using this as dense stone storage.
 data.raw["recipe"]["solar-panel-recycling"].results = {
-	{type="item", name="solar-panel", amount=1, probability=0.25, ignored_by_stats=1},
+	{ type = "item", name = "solar-panel", amount = 1, probability = 0.25, ignored_by_stats = 1 },
 }
 -- Ensure weight is set, as otherwise too heavy!
 data.raw["item"]["solar-panel"].weight = 200000 -- 5 per rocket, should be plenty
@@ -61,9 +65,9 @@ data.raw["technology"]["solar-energy"].unit = { -- The same as processing units.
 	count = 300,
 	ingredients =
 	{
-	  {"automation-science-pack", 1},
-	  {"logistic-science-pack", 1},
-	  {"chemical-science-pack", 1}
+	  { "automation-science-pack", 1 },
+	  { "logistic-science-pack", 1 },
+	  { "chemical-science-pack", 1 }
 	},
 	time = 60
 }

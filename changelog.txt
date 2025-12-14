@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 2025.12.14
+  Changes:
+    - So at some point portable solar started being affected by the surface solar amount, basically making the equipment useless. Oops. (Fixed now)
+---------------------------------------------------------------------------------------------------
 Version: 1.1.1
 Date: 2025.06.02
   Changes:
