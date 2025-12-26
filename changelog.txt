@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2025.12.26
+  Changes:
+    - Added a light to the remote view cursor. Can be disabled in settings. (It's a little against the spirit of the mod but I got sick of using tanks for remote building)
+---------------------------------------------------------------------------------------------------
 Version: 1.1.2
 Date: 2025.12.14
   Changes:
